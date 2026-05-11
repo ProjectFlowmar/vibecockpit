@@ -4,11 +4,16 @@
 
 Run one command on any Windows machine. Five minutes later your full AI-coding setup is there — same editor, same extensions, same Claude/Codex/Cursor memory, same slash commands. Walk away from your desk, open your laptop somewhere else, keep working.
 
+After v0.2: it also keeps itself synced in the background. You stop thinking about `git pull` / `git push` entirely.
+
 ```powershell
-.\vibe.ps1 init
+.\vibe.ps1 init           # one-time setup
+.\vibe.ps1 install-tasks  # one-time: enable ambient auto-sync
 ```
 
 Built by [@ProjectFlowmar](https://github.com/ProjectFlowmar) (Omar Catlin) — a licensed insurance broker who codes with AI. Made for people in the same situation.
+
+📋 [What's new in v0.2](CHANGELOG.md) · 📚 [Lessons learned shipping this](LESSONS.md)
 
 ---
 
@@ -107,6 +112,38 @@ Snapshots this machine to `inventories/<HOSTNAME>.json`. Commit it. When you set
 ```powershell
 .\vibe.ps1 inventory
 ```
+
+### `vibe install-tasks` *(v0.2)*
+
+Registers two Windows Scheduled Tasks per machine — turns `vibe sync` from a thing you remember to run into ambient infrastructure you don't think about:
+
+- **VibeCockpitSyncDaemon** — every 10 min: `git pull`, auto-commit anything new, `git push`.
+- **VibeCockpitHealthCheck** — daily at 08:00: runs `vibe test`, drops a `SYNC-ALERT.txt` flag file if anything fails. Your PowerShell profile checks for that flag on shell open and prints a yellow warning.
+
+```powershell
+.\vibe.ps1 install-tasks
+```
+
+No admin needed. Idempotent. Safe to re-run.
+
+### `vibe test` *(v0.2)*
+
+End-to-end self-test. Verifies the cockpit repo, memory + commands counts, cloud-drive credential vault junction, PowerShell profile + Bitwarden helpers. Use anytime drift is suspected.
+
+```powershell
+.\vibe.ps1 test
+```
+
+### `vibe setup-bitwarden` / `vibe unlock-bitwarden` *(v0.2)*
+
+One-time Bitwarden CLI login (uses API key, never master password in chat) + a re-unlock helper for after a reboot.
+
+```powershell
+.\vibe.ps1 setup-bitwarden    # one-time per machine
+.\vibe.ps1 unlock-bitwarden   # after reboot or 'bw lock'
+```
+
+After this, `Get-Secret OPENAI_API_KEY` works from anywhere — small password-style secrets handled separately from the cloud-drive credential folder. See `LESSONS.md` for the routing rule.
 
 ---
 
