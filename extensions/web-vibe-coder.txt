@@ -1,0 +1,31 @@
+# Web Vibe Coder persona — VS Code extensions
+# Static sites, landing pages, small web apps, Netlify-first
+
+# AI agents
+anthropic.claude-code
+github.copilot-chat
+
+# Git
+eamodio.gitlens
+
+# Code quality
+usernamehw.errorlens
+esbenp.prettier-vscode
+
+# Web helpers
+ritwickdey.liveserver
+formulahendry.auto-rename-tag
+christian-kohler.path-intellisense
+bradlc.vscode-tailwindcss
+
+# Project management
+alefragnani.project-manager
+
+# API testing
+rangav.vscode-thunder-client
+
+# Markdown
+shd101wyy.markdown-preview-enhanced
+
+# Theme
+pkief.material-icon-theme

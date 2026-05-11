@@ -1,0 +1,42 @@
+# AI Operator persona — VS Code extensions
+# AI agents + git + code quality + project switching + multiple languages
+
+# AI agents
+anthropic.claude-code
+saoudrizwan.claude-dev
+github.copilot-chat
+
+# Git + GitHub
+eamodio.gitlens
+github.vscode-pull-request-github
+
+# Code quality
+usernamehw.errorlens
+aaron-bond.better-comments
+gruntfuggly.todo-tree
+streetsidesoftware.code-spell-checker
+
+# Formatting
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+
+# Project management (you have many repos)
+alefragnani.project-manager
+
+# Run + preview
+formulahendry.code-runner
+ritwickdey.liveserver
+rangav.vscode-thunder-client
+
+# Shell
+ms-vscode.powershell
+
+# HTML / web helpers
+formulahendry.auto-rename-tag
+christian-kohler.path-intellisense
+
+# Markdown
+shd101wyy.markdown-preview-enhanced
+
+# Theme
+pkief.material-icon-theme

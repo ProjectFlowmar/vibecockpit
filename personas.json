@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "description": "Persona definitions for 'vibe init'. Each persona installs a tailored stack. Pick the one closest to you; mix-and-match later.",
+    "schema_version": 1
+  },
+  "personas": [
+    {
+      "id": "ai-operator",
+      "name": "AI Operator",
+      "tagline": "I run a small business and AI does most of the heavy lifting. I want voice agents, lead pipelines, automations that just keep running.",
+      "extensions_file": "ai-operator.txt",
+      "winget_packages": [
+        "Microsoft.VisualStudioCode",
+        "OpenJS.NodeJS.22",
+        "Python.Python.3.11",
+        "Git.Git",
+        "GitHub.cli",
+        "Google.Chrome",
+        "Bitwarden.CLI",
+        "ShareX.ShareX"
+      ],
+      "starter_memory": ["user_example.md", "feedback_example.md", "project_example.md", "reference_example.md"],
+      "post_install_hint": "Set up your AI agent next (Claude Code is recommended). Run 'vibe scan' on your first project to generate a CLAUDE.md."
+    },
+    {
+      "id": "web-vibe-coder",
+      "name": "Web Vibe Coder",
+      "tagline": "I ship landing pages, marketing sites, and small web apps. Static HTML, Netlify deploys, Stripe checkout.",
+      "extensions_file": "web-vibe-coder.txt",
+      "winget_packages": [
+        "Microsoft.VisualStudioCode",
+        "OpenJS.NodeJS.22",
+        "Git.Git",
+        "GitHub.cli",
+        "Google.Chrome",
+        "Bitwarden.CLI"
+      ],
+      "starter_memory": ["user_example.md", "feedback_example.md", "project_example.md"],
+      "post_install_hint": "Install the Netlify CLI when you ship your first site: 'npm install -g netlify-cli'. Login: 'netlify login'."
+    },
+    {
+      "id": "solo-founder",
+      "name": "Solo Founder",
+      "tagline": "I'm building a SaaS or service business by myself. Backend + payments + lead capture + analytics. Time-to-ship matters more than perfection.",
+      "extensions_file": "solo-founder.txt",
+      "winget_packages": [
+        "Microsoft.VisualStudioCode",
+        "OpenJS.NodeJS.22",
+        "Python.Python.3.11",
+        "Git.Git",
+        "GitHub.cli",
+        "Google.Chrome",
+        "Bitwarden.CLI",
+        "Stripe.StripeCli"
+      ],
+      "starter_memory": ["user_example.md", "feedback_example.md", "project_example.md", "reference_example.md"],
+      "post_install_hint": "Recommended next steps: 'gh auth login', 'stripe login', set up Bitwarden CLI with 'vibe-setup-bitwarden'."
+    },
+    {
+      "id": "terminal-native",
+      "name": "Terminal Native",
+      "tagline": "Just give me the shell. No GUI. I want AI agents accessible from a tmux pane.",
+      "extensions_file": "terminal-native.txt",
+      "winget_packages": [
+        "Microsoft.WindowsTerminal",
+        "OpenJS.NodeJS.22",
+        "Python.Python.3.11",
+        "Git.Git",
+        "GitHub.cli",
+        "Bitwarden.CLI"
+      ],
+      "starter_memory": ["user_example.md", "feedback_example.md"],
+      "post_install_hint": "VS Code skipped on purpose. You're free."
+    },
+    {
+      "id": "curious-beginner",
+      "name": "Curious Beginner",
+      "tagline": "I run a small business. I keep hearing 'AI can do that' but I've never written code. Install the minimum so I can try it without breaking anything.",
+      "extensions_file": "curious-beginner.txt",
+      "winget_packages": [
+        "Microsoft.VisualStudioCode",
+        "OpenJS.NodeJS.22",
+        "Git.Git",
+        "GitHub.cli",
+        "Google.Chrome"
+      ],
+      "starter_memory": ["user_example.md"],
+      "post_install_hint": "Welcome. Open VS Code, install the 'Claude Code' extension from the marketplace, and start a chat. The AI does the typing; you decide what you want to build."
+    }
+  ]
+}

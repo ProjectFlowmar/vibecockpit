@@ -1,0 +1,20 @@
+# Curious Beginner persona — VS Code extensions
+# Minimum to be productive without overwhelming. Add more as you grow.
+
+# AI (this is the whole point)
+anthropic.claude-code
+
+# Show errors inline so you don't have to hunt for them
+usernamehw.errorlens
+
+# Auto-format on save (one less thing to think about)
+esbenp.prettier-vscode
+
+# Pretty file icons (helps you scan a folder)
+pkief.material-icon-theme
+
+# See git changes without leaving the editor
+eamodio.gitlens
+
+# Right-click an HTML file -> "Open with Live Server" for instant preview
+ritwickdey.liveserver

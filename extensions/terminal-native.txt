@@ -1,0 +1,6 @@
+# Terminal Native persona — VS Code extensions
+# Mostly empty by design. You said terminal, we listen.
+# If you change your mind and want a GUI later, swap personas.
+
+# AI agents (just one, optional)
+anthropic.claude-code

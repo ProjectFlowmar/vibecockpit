@@ -1,0 +1,43 @@
+# Solo Founder persona — VS Code extensions
+# Full-stack: backend, payments, analytics. Ship fast.
+
+# AI agents
+anthropic.claude-code
+saoudrizwan.claude-dev
+github.copilot-chat
+
+# Git
+eamodio.gitlens
+github.vscode-pull-request-github
+
+# Code quality
+usernamehw.errorlens
+aaron-bond.better-comments
+gruntfuggly.todo-tree
+streetsidesoftware.code-spell-checker
+
+# Formatting / linting
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+
+# Project management
+alefragnani.project-manager
+
+# Run + preview
+formulahendry.code-runner
+ritwickdey.liveserver
+rangav.vscode-thunder-client
+
+# Python (often needed for scripts + integrations)
+ms-python.python
+ms-python.vscode-pylance
+
+# DB / data
+mechatroner.rainbow-csv
+
+# Markdown
+shd101wyy.markdown-preview-enhanced
+yzhang.markdown-all-in-one
+
+# Theme
+pkief.material-icon-theme

@@ -1,0 +1,47 @@
+# =========================================================
+# Whitelist approach: ignore EVERYTHING by default,
+# then explicitly allow only the files we want tracked.
+# Guarantees that personal secrets / memory / inventories
+# never sneak into a fork of this repo.
+# =========================================================
+
+# Ignore everything
+*
+
+# Re-include the gitignore itself
+!.gitignore
+
+# Re-include docs
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+!CHANGELOG.md
+
+# Re-include scripts
+!vibe.ps1
+!vibe-*.ps1
+!inventory.ps1
+
+# Re-include persona definitions + extension lists
+!personas.json
+!extensions/
+!extensions/*.txt
+
+# Re-include memory templates (examples, not real memory)
+!memory-template/
+!memory-template/*.md
+
+# Re-include GitHub config
+!.github/
+!.github/**
+
+# Never include personal data, secrets, or per-user state
+inventories/
+memory/
+projects/
+settings.json
+.credentials.json
+.env
+.env.*
+*.key
+*.pem
