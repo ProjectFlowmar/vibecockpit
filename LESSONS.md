@@ -151,4 +151,45 @@ This pattern (flag files + opportunistic detection) is much simpler than running
 
 ---
 
+## Multiple parallel Claude/AI sessions on the same machine
+
+Running 2–3 Claude Code (or Codex, or Cursor) sessions in parallel terminals is increasingly common — different projects, different verticals, three windows tiled across one monitor. VibeCockpit's sync model handles this fine **if** you understand one thing:
+
+**Memory is namespaced by working directory, not by terminal window.** When Claude Code starts, it reads memory from `~/.claude/projects/<encoded-cwd>/memory/`. The "encoded-cwd" is the working directory you launched from, slashes replaced with dashes. So `cd ~/marketing-engine && claude` and `cd ~/Project5pi.com && claude` write to completely different memory folders, even if they're the same user on the same machine.
+
+**The implication:** if you cd into a different folder for each parallel session, they cannot conflict — they're writing to different files. The sync-daemon happily commits all of them.
+
+**The trap:** if you start two Claude sessions in the **same** working directory, they share a memory folder. Both try to write `MEMORY.md`, `user_*.md`, etc. The sync-daemon will hit merge conflicts roughly every 10 minutes and silently last-writer-wins. You won't notice until something feels wrong.
+
+**Concrete rule for parallel sessions:**
+
+- 1 session per working directory = safe
+- 2+ sessions in the same working directory = unsafe
+- Open terminals like `cd C:\proj-A; claude`, `cd C:\proj-B; claude`, etc.
+
+**If you genuinely need two sessions on the same project,** the lowest-friction fix is to use two machines (desktop + laptop). The sync repo pulls cleanly across machines because each one has its own clone and the daemon rebases on top. Race-conditions become slow-enough to be human-resolvable.
+
+**What VibeCockpit does NOT do** (and won't unless someone PRs it):
+
+- File locking between sessions
+- Real-time websocket sync
+- Conflict UI / merge tool
+- Per-session memory subfolders that auto-merge
+
+If you find yourself wanting any of those, you've outgrown VibeCockpit's "single human, ambient sync" target. Use a real CMS or shared workspace tool.
+
+---
+
+## When the 10-minute push is the wrong cadence
+
+Default daemon cadence is 10 minutes. Fine for most users. Two cases where you'd change it:
+
+**Drop to 3–5 min:** if you frequently start a session, write 1–2 memory updates, then close the laptop within minutes. The 10-min window can swallow your changes if the daemon hasn't fired before sleep. Edit `vibe-install-tasks.ps1` and change `RepetitionInterval (New-TimeSpan -Minutes 10)` to `-Minutes 5`. Re-run `vibe install-tasks`.
+
+**Raise to 30+ min:** if you're on metered or slow internet and don't want background git activity. Same edit, opposite direction.
+
+The cadence is not a religious belief. Pick what matches how fast your work moves.
+
+---
+
 *— Omar Catlin / [@ProjectFlowmar](https://github.com/ProjectFlowmar), shipped 2026-05-11. PRs that add lessons or correct mistakes welcome.*

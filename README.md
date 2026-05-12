@@ -168,6 +168,12 @@ What's never synced (the whitelist `.gitignore` enforces this):
 - Conversation transcripts, history, cache, statsig
 - Any `.env` files or `*.key` / `*.pem`
 
+### Running multiple parallel AI sessions
+
+Running 2-3 Claude Code (or Codex / Cursor) sessions in parallel terminals works **if and only if each session is in a different working directory**. Claude namespaces memory by the directory you launched from — so `cd ~/proj-A; claude` and `cd ~/proj-B; claude` write to separate memory folders and never conflict.
+
+If you start two sessions in the **same** working directory, they share memory and the sync-daemon will hit silent merge conflicts on `MEMORY.md` roughly every 10 minutes. See [LESSONS.md](LESSONS.md) for the full breakdown and rules.
+
 ---
 
 ## Credentials — the safe way
